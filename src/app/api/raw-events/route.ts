@@ -11,14 +11,14 @@ const API_KEY:string = process.env.DATA_API_KEY as string
 export async function GET(){
     const res = await fetch(DATA_SOURCE_URL)
 
-    const todos: Todo[] = await res.json()
+    const rawEvents: RawEvents[] = await res.json()
 
-    return NextResponse.json(todos)
+    return NextResponse.json(rawEvents)
 }
 
 
 export async function DELETE(request: Request){
-    const {id}: Partial<Todo> = await request.json()
+    const {id}: Partial<RawEvents> = await request.json()
 
 
     if (!id) return NextResponse.json({"message": "Todo id required"})

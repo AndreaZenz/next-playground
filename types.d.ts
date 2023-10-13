@@ -1,4 +1,4 @@
-type Todo = {
+type RawEvents = {
     userId: number, 
     id: number,
     title: string,
