@@ -13,7 +13,7 @@ function FetchData() {
   useEffect(() => {
     // axios (libreria npm) ci permette di effettuare la get a mocky, e nel then prendiamo la risposta e utilizzando il setData (dell'array deconstructure)
     axios
-      .get("https://run.mocky.io/v3/98ae029f-b61a-4a3f-8323-8078d95cb12e")
+      .get("https://run.mocky.io/v3/2989875a-d0f8-405f-bfe8-70418f4ff3cb")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -25,26 +25,28 @@ function FetchData() {
       .catch((err) => console.log(err));
   };
 
-  // conditionally rendering table depending on the data 
-  
+  // conditionally rendering table depending on the data
+
   let table;
   if (data) {
     table = (
       <table className="table">
         <thead>
           <tr>
-            <th>firstname</th>
-            <th>lastname</th>
-            <th>age</th>
+            <th>Header Id</th>
+            <th>Header Timestamp</th>
+            <th>Telecontrol id</th>
+            <th>Header Type</th>
           </tr>
         </thead>
         <tbody>
           {data.map((user, index) => {
             return (
               <tr key={index}>
-                <td>{user.firstname}</td>
-                <td>{user.lastname}</td>
-                <td>{user.age}</td>
+                <td>{user.header_id_co}</td>
+                <td>{user.header_timestamp}</td>
+                <td>{user.telecontrol_id}</td>
+                <td>{user.header_type}</td>
               </tr>
             );
           })}
@@ -56,13 +58,15 @@ function FetchData() {
       <table className="table">
         <thead>
           <tr>
-            <th>firstname</th>
-            <th>lastname</th>
-            <th>age</th>
+            <th>Header Id</th>
+            <th>Header Timestamp</th>
+            <th>Telecontrol id</th>
+            <th>Header Type</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -86,6 +90,5 @@ function FetchData() {
     </div>
   );
 }
-
 
 export default FetchData;
